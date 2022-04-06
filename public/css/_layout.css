@@ -1,0 +1,44 @@
+
+.ls_container {
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.debug-menu {
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    padding: 5px 30px;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    transition: all .3s ease;
+    z-index: 9999;
+}
+
+.debug-menu a {
+    padding: 5px 0;
+}
+
+.debug-menu:after {
+    width: 150px;
+    text-align: center;
+    content: "Menú debug";
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+
+    bottom: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.debug-menu.open {
+    top: 0;
+}
+
+.debug-menu.open:after {
+    content: "Tencar";
+}
+
