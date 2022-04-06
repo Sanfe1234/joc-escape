@@ -19,6 +19,9 @@ use App\Models\Experiencia;
                 <th scope="col">ID</th>
                 <th scope="col">Usuari</th>
                 <th scope="col">Experiència</th>
+                <th scope="col">Data</th>
+                <th scope="col">Puntuació</th>
+                <th scope="col">Comentaris</th>
             </tr>
             </thead>
             <tbody>
