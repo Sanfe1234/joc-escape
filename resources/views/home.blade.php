@@ -3,7 +3,6 @@
 
 use App\Models\Imatge;
 
-
 ?>
 @section('title')
     Escapes Manolito

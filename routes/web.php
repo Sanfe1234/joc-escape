@@ -3,19 +3,29 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InitController;
 use App\Http\Controllers\JocController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SalaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\ResenyaController;
 use App\Http\Controllers\ExperienciaController;
 use App\Http\Controllers\ReservaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 //Executa això per omplir la BBDD:
 Route::get('/generate-BBDD', [InitController::class, 'loadBBDD']);
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->middleware('auth');
+
+Route::get('/login-page', function () {
+    return view('login');
+});
+
+Route::post('/login', [LoginController::Class, 'login']);
+
+Route::post('/log-out', [LoginController::Class, 'logout']);
 
 
 //---------------------------   JOCS   ---------------------------\\

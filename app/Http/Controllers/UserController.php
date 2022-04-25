@@ -32,7 +32,7 @@ class UserController extends BaseController
 
         $user->id_rol = 1;
         $user->name = $req['name'];
-        $user->password = $req['password'];
+        $user->password = bcrypt($req['password']);
         $user->dni = $req['dni'];
         $user->mail = $req['mail'];
         $user->phone = $req['phone'];

@@ -108,7 +108,7 @@ class InitController extends BaseController
         $empleat1 = new user;
         $empleat1->id_rol = 2;
         $empleat1->name = 'Hector Ortiz';
-        $empleat1->password = 'admin';
+        $empleat1->password = bcrypt('admin');
         $empleat1->dni = '6246831g';
         $empleat1->mail = 'Hector@escapesmanolito.com';
         $empleat1->phone = '734931472';
@@ -119,7 +119,7 @@ class InitController extends BaseController
         $empleat2 = new user;
         $empleat2->id_rol = 2;
         $empleat2->name = 'Maribel';
-        $empleat2->password = 'admin';
+        $empleat2->password = bcrypt('admin');
         $empleat2->dni = '7564323Fs';
         $empleat2->mail = 'Maribel@escapesmanolito.com';
         $empleat2->phone = '123456789';
@@ -130,7 +130,7 @@ class InitController extends BaseController
         $client1 = new user;
         $client1->id_rol = 1;
         $client1->name = 'Jofre Skerecasiotolli';
-        $client1->password = '123456';
+        $client1->password = bcrypt('1234');
         $client1->dni = '62413894L';
         $client1->mail = 'Jofre@gmail.com';
         $client1->phone = '730520531';
@@ -141,7 +141,7 @@ class InitController extends BaseController
         $client2 = new user;
         $client2->id_rol = 1;
         $client2->name = 'Marc Serrat Aplanat';
-        $client2->password = '56754';
+        $client2->password = bcrypt('1234');
         $client2->dni = '1234567G';
         $client2->mail = 'Marc@gmail.com';
         $client2->phone = '123456789';

@@ -37,13 +37,19 @@
                 </li>
                 -->
             </ul>
-            <a href="/llista-users" class="btn text-white my-2 my-sm-0">Usuaris</a>
-            <a href="/llista-resenyes" class="btn text-white my-2 my-sm-0">Resenyes</a>
-            <a href="/llista-experiencies" class="btn text-white my-2 my-sm-0">Experiencies</a>
-            <a href="/llista-reserves" class="btn text-white my-2 my-sm-0">Reserves</a>
-            <a href="/llista-vouchers" class="btn text-white my-2 my-sm-0">Vouchers</a>
-            <a href="/llista-sales" class="btn text-white my-2 my-sm-0">Sales</a>
-            <a href="/login" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+            @if(session('admin'))
+                <a href="/llista-users" class="btn text-white my-2 my-sm-0">Usuaris</a>
+                <a href="/llista-resenyes" class="btn text-white my-2 my-sm-0">Resenyes</a>
+                <a href="/llista-experiencies" class="btn text-white my-2 my-sm-0">Experiencies</a>
+                <a href="/llista-reserves" class="btn text-white my-2 my-sm-0">Reserves</a>
+                <a href="/llista-vouchers" class="btn text-white my-2 my-sm-0">Vouchers</a>
+                <a href="/llista-sales" class="btn text-white my-2 my-sm-0">Sales</a>
+            @endif
+            @if(Auth::check())
+                <a href="/log-out" class="btn btn-outline-success my-2 my-sm-0">LogOut</a>
+            @else
+                <a href="/login-page" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+            @endif
         </div>
     </nav>
 
