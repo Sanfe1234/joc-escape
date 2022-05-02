@@ -34,5 +34,21 @@ class HomeController extends BaseController
         return view('home')->with('jocs', $jocs)->with('imgs', $imgs);
     }
 
+    public function backoffice()
+    {
+
+        $users = User::all();
+        $jocs = Joc::all();
+        $imgs = Imatge::all();
+        //echo $imgs;
+
+        if (session('admin')) {
+            return view('gestor')->with('jocs', $jocs)->with('imgs', $imgs);
+        } else {
+            return view('home')->with('jocs', $jocs)->with('imgs', $imgs);
+        }
+
+    }
+
 
 }

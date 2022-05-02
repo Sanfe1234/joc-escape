@@ -38,6 +38,7 @@
                 -->
             </ul>
             @if(session('admin'))
+                <a href="/llista-jocs" class="btn text-white my-2 my-sm-0">Jocs</a>
                 <a href="/llista-users" class="btn text-white my-2 my-sm-0">Usuaris</a>
                 <a href="/llista-resenyes" class="btn text-white my-2 my-sm-0">Resenyes</a>
                 <a href="/llista-experiencies" class="btn text-white my-2 my-sm-0">Experiencies</a>
@@ -46,19 +47,15 @@
                 <a href="/llista-sales" class="btn text-white my-2 my-sm-0">Sales</a>
             @endif
             @if(Auth::check())
+                <p class="bg-primary badge mt-3 mr-4 fs-2" style="font-size: 20px">Welcome: {{ Auth::user()->name }}</p>
                 <a href="/log-out" class="btn btn-outline-success my-2 my-sm-0">LogOut</a>
             @else
+                <a href="/new-user" class="btn btn-outline-light mr-3 my-2 my-sm-0">Regstrar-se</a>
                 <a href="/login-page" class="btn btn-outline-success my-2 my-sm-0">Login</a>
             @endif
         </div>
     </nav>
 
-    <div class="debug-menu">
-        <a href="/generate-BBDD">Generar BBDD</a>
-        <!--
-        <a href="/delete-BBDD">BORRAR BBDD</a>
-        -->
-    </div>
 </header>
 
 <body class="antialiased">

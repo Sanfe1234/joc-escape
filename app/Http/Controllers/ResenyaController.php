@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Joc;
 use App\Models\Resenya;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -17,8 +18,11 @@ class ResenyaController extends BaseController
     public function show()
     {
         $resenyes = Resenya::all();
-
-        return view('resenyes.show_resenyes')->with('resenyes', $resenyes);
+        if (session('admin')) {
+            return view('resenyes.show_resenyes')->with('resenyes', $resenyes);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function save()

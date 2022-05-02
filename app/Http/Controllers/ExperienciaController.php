@@ -17,13 +17,17 @@ class ExperienciaController extends BaseController
     public function show()
     {
         $experiencies = Experiencia::all();
-
-        return view('experiencies.show_experiencies')->with('experiencies', $experiencies);
+        if (session('admin')) {
+            return view('experiencies.show_experiencies')->with('experiencies', $experiencies);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function save()
     {
         $req = request()->all();
+
         $experiencia = new Experiencia();
 
         //dd($req);

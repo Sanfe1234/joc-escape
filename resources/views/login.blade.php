@@ -23,6 +23,17 @@
         </form>
     </div>
 
+    @if(!session('loginError'))
+
+    @else
+        <div class="container mt-5">
+            <div class="alert alert-danger" role="alert">
+                {{ Session::get('loginError') }}
+            </div>
+        </div>
+    @endif
+
+    {{ Session::put('loginError', false) }}
 @endsection
 
 

@@ -48,10 +48,16 @@
                 <input type="text" class="form-control" name="company" id="company" aria-describedby="emailHelp"
                        placeholder="Insereix la teva empresa">
             </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="adminCheck" name="admin">
-                <label class="form-check-label" for="adminCheck">Admin?</label>
-            </div>
+            @if(session('admin'))
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="adminCheck" name="admin">
+                    <label class="form-check-label" for="adminCheck">Admin?</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="WorkerCheck" name="worker">
+                    <label class="form-check-label" for="WorkerCheck">Empleat?</label>
+                </div>
+            @endif
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

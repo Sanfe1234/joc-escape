@@ -17,8 +17,11 @@ class VoucherController extends BaseController
     public function show()
     {
         $vouchers = Voucher::all();
-
-        return view('vouchers.show_vouchers')->with('vouchers', $vouchers);
+        if (session('admin')) {
+            return view('vouchers.show_vouchers')->with('vouchers', $vouchers);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function save()

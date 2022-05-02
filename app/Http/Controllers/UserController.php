@@ -10,6 +10,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\Console\Input\Input;
 
 class UserController extends BaseController
@@ -19,8 +21,11 @@ class UserController extends BaseController
     public function show()
     {
         $users = User::all();
-
-        return view('users.show_users')->with('users', $users);
+        if (session('admin')) {
+            return view('users.show_users')->with('users', $users);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function save()

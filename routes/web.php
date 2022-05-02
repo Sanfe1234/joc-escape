@@ -13,11 +13,12 @@ use App\Http\Controllers\ReservaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
 //Executa això per omplir la BBDD:
 Route::get('/generate-BBDD', [InitController::class, 'loadBBDD']);
 
-Route::get('/', [HomeController::class, 'index'])->middleware('auth');
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/Gestor', [HomeController::class, 'backoffice']);
 
 Route::get('/login-page', function () {
     return view('login');
@@ -25,8 +26,7 @@ Route::get('/login-page', function () {
 
 Route::post('/login', [LoginController::Class, 'login']);
 
-Route::post('/log-out', [LoginController::Class, 'logout']);
-
+Route::get('/log-out', [LoginController::Class, 'logout']);
 
 //---------------------------   JOCS   ---------------------------\\
 
@@ -34,13 +34,15 @@ Route::get('/new-game', function () {
     return view('jocs.create_game');
 });
 
-Route::get('/jocs/{joc}', [JocController::class, 'show']);
+Route::get('/jocs/{joc}', [JocController::class, 'showSingle']);
+
+Route::get('/llista-jocs', [JocController::class, 'show']);
 
 Route::get('/jocs/{joc}/edit', [JocController::Class, 'edit']);
 
 Route::post('/save-game', [JocController::Class, 'save']);
 
-Route::post('/jocs/{jocId}/delete', [JocController::Class, 'destroy']);
+Route::get('/jocs/{jocId}/delete', [JocController::Class, 'destroy']);
 
 Route::post('/jocs/{joc}/update-game', [JocController::Class, 'update']);
 
@@ -100,6 +102,10 @@ Route::post('/vouchers/{voucher}/update-voucher', [VoucherController::Class, 'up
 
 Route::get('/new-reserva', function () {
     return view('reserves.create_reserva');
+});
+
+Route::get('/new-reserva-user', function () {
+    return view('reserves.new_reserva-user');
 });
 
 Route::get('/llista-reserves', [ReservaController::class, 'show']);

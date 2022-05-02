@@ -31,12 +31,11 @@
                         </li>
                     </ul>
 
-                    <form action="/jocs/{{ $joc->id }}/delete" method="POST">
-                        @csrf
-                        <input name="id" type="hidden" value="{{ $joc->id }}">
-                        <button>BORRAR</button>
-                    </form>
-                    <a href="/jocs/{{$joc->id}}/edit" class="btn btn-primary">Editar</a>
+                    @if(Auth::check())
+                        <a href="/new-reserva-user">Reservar</a>
+                    @else
+                        Necessites <a href="/login-page">iniciar sessió</a> per reservar
+                    @endif
                 </div>
             </div>
         </div>

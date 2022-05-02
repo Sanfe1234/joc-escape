@@ -17,9 +17,19 @@ class JocController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function show($jocID)
+    public function showSingle($jocID)
     {
         return view('jocs.single_joc')->with(['joc' => Joc::find($jocID)]);
+    }
+
+    public function show()
+    {
+        $jocs = Joc::all();
+        if (session('admin')) {
+            return view('jocs.show_jocs')->with('jocs', $jocs);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function save()
@@ -50,14 +60,18 @@ class JocController extends BaseController
         return redirect('/');
     }
 
-    public function destroy(Joc $joc)
+    public function destroy($jocId)
     {
-        //dd($joc->id);
-        $imatge = Imatge::find($joc->id);
-        $imatge->delete();
+        if (Imatge::find($jocId)) {
+            $imatge = Imatge::find($jocId);
+            //dd($imatge);
+            $imatge->delete();
+        }
+        $joc = Joc::find($jocId);
+        //dd($joc);
         $joc->delete();
 
-        return redirect('/');
+        return redirect('/llista-jocs');
     }
 
     public function edit(Joc $joc)

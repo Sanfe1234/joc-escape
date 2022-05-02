@@ -17,8 +17,11 @@ class SalaController extends BaseController
     public function show()
     {
         $sales = Sala::all();
-
-        return view('sales.show_sales')->with('sales', $sales);
+        if (session('admin')) {
+            return view('sales.show_sales')->with('sales', $sales);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function save()

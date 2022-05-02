@@ -24,31 +24,6 @@ use App\Models\Imatge;
         </div>
     </div>
 
-    <!--
-    <section class="games">
-        <div class="ls_container">
-            <div class="games-wrapper">
-                @foreach($jocs as $j)
-        <div class="games__item">
-            <a href="jocs/{{$j->id}}" class="games__item-container">
-                            <img class="games__item__img"
-                                 src="{{\App\Http\Controllers\ImageController::getImage($j->id)['url']}}"
-                                 alt="Card image cap">
-                            <div class="games__item__content">
-                                <h5 class="games__item__content__title">{{$j->name}} | {{$j->id}} </h5>
-                            </div>
-                        </a>
-                        <a href="jocs/{{$j->id}}/edit">Editar</a>
-                    </div>
-
-                @endforeach
-        </div>
-    </div>
-</section>
--->
-
-    <a href="/new-game">Crear Joc</a>
-
 @endsection
 
 

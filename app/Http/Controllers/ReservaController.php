@@ -19,8 +19,11 @@ class ReservaController extends BaseController
     public function show()
     {
         $reserves = Reserva::all();
-
-        return view('reserves.show_reserves')->with('reserves', $reserves);
+        if (session('admin')) {
+            return view('reserves.show_reserves')->with('reserves', $reserves);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function save()
