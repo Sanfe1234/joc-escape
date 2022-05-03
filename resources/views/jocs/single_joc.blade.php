@@ -20,7 +20,7 @@
                 <div class="joc-single__info">
                     <img class="joc-single__info__img"
                          src="{{\App\Http\Controllers\ImageController::getImage($joc->id)['url']}}"
-                         alt="Card image cap">
+                         alt="{{ $joc->name }}">
 
                     <ul class="joc-single__info__players">
                         <li>
@@ -32,7 +32,7 @@
                     </ul>
 
                     @if(Auth::check())
-                        <a href="/new-reserva-user">Reservar</a>
+                        <a href="/joc/{{$joc->id}}/reserva">Reservar</a>
                     @else
                         Necessites <a href="/login-page">iniciar sessió</a> per reservar
                     @endif

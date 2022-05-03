@@ -16,6 +16,7 @@ class Reserva extends Migration
         Schema::create('reserva', function (Blueprint $table) {
             $table->id('id')->unique()->autoIncrement();
             $table->foreignId('id_user')->references('id')->on('user');
+            $table->foreignId('id_joc')->references('id')->on('joc');
             $table->foreignId('id_sala')->references('id')->on('sala');
             $table->dateTime('data_reserva');
             $table->boolean('validat');

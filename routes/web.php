@@ -104,13 +104,15 @@ Route::get('/new-reserva', function () {
     return view('reserves.create_reserva');
 });
 
-Route::get('/new-reserva-user', function () {
-    return view('reserves.new_reserva-user');
-});
+Route::get('/joc/{jocId}/reserva', [ReservaController::class, 'goToReserva']);
 
 Route::get('/llista-reserves', [ReservaController::class, 'show']);
 
 Route::get('/reserves/{reserva}/edit', [ReservaController::class, 'edit']);
+
+Route::get('/reserves/{reservaId}/admin-see', [ReservaController::class, 'adminSee']);
+
+Route::get('/reserva/{reservaId}/validar', [ReservaController::class, 'validar']);
 
 Route::get('/reserves/{reservaId}/destroy', [ReservaController::class, 'destroy']);
 

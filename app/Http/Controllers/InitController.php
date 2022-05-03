@@ -188,6 +188,7 @@ class InitController extends BaseController
         $res1 = new Reserva;
         $res1->id_user = 3;
         $res1->id_sala = 1;
+        $res1->id_joc = 1;
         $res1->data_reserva = Carbon::now()->addDays(5);
         $res1->validat = false;
         $res1->save();
@@ -195,6 +196,7 @@ class InitController extends BaseController
         $res1 = new Reserva;
         $res1->id_user = 4;
         $res1->id_sala = 1;
+        $res1->id_joc = 2;
         $res1->data_reserva = Carbon::now()->addDays(5);
         $res1->validat = false;
         $res1->save();
