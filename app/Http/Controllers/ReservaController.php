@@ -9,6 +9,7 @@ use App\Models\Resenya;
 use App\Models\Reserva;
 use App\Models\Sala;
 use App\Models\User;
+use App\Models\Voucher;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -42,15 +43,12 @@ class ReservaController extends BaseController
 
         $participantsArray = array();
         foreach (Participant::all() as $p) {
-            if (Reserva::where('id', $p->id_reserva)->exists()) {
+            if ($reserva->id == $p->id_reserva) {
                 array_push($participantsArray, $p);
             }
         }
-        dd($participantsArray);
 
-        //^^^  ARREGLAR AIXÒ  ^^^ (retorna tots els participants en comptes dels k te la reserva)
-
-        return view('reserves.show_reserva-admin')->with('reserva', $reserva)->with('buyer', User::find($reserva->id_user))->with('sala', Sala::find($reserva->id_sala))->with('joc', Joc::find($reserva->id_joc))->with('participants', $participantsArray);
+        return view('reserves.show_reserva-admin')->with('reserva', $reserva)->with('client', User::find($reserva->id_user))->with('sala', Sala::find($reserva->id_sala))->with('joc', Joc::find($reserva->id_joc))->with('participants', $participantsArray);
     }
 
     public function validar($reservaId)
@@ -66,7 +64,7 @@ class ReservaController extends BaseController
         $experiencia->winner = false;
         $experiencia->save();
 
-        return view('reserves.show_reserva-admin')->with('reserva', $reserva)->with('buyer', User::find($reserva->id_user))->with('sala', Sala::find($reserva->id_sala))->with('joc', Joc::find($reserva->id_joc));
+        return redirect('/reserves/' . $reserva->id . '/admin-see');
     }
 
     public function show()
@@ -94,6 +92,7 @@ class ReservaController extends BaseController
 
         $reserva = new Reserva();
         $reserva->id_user = $req['userId'];
+        $reserva->id_joc = $req['jocId'];
         $reserva->id_sala = $req['sala'];
         $reserva->data_reserva = $req['data_reserva'];
         $reserva->validat = false;

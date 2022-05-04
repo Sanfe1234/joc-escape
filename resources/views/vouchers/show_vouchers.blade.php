@@ -26,14 +26,14 @@ use App\Models\User;
                     <th scope="row">{{ $v->id }}</th>
                     <td>{{ User::find($v->id_user)->name }}</td>
                     <td>{{ $v->discount }}%</td>
-                    <td><a href="/vouchers/{{ $v->id }}/destroy" class="btn btn-primary">Eliminar</a></td>
-                    <td><a href="/vouchers/{{ $v->id }}/edit" class="btn btn-primary">Editar</a></td>
+                    <td><a href="/vouchers/{{ $v->id }}/destroy" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="/vouchers/{{ $v->id }}/edit" class="btn btn-warning">Editar</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
 
-        <a href="/new-voucher" class="btn btn-block btn-primary">Crear Voucher</a>
+        <!-- <a href="/new-voucher" class="btn btn-block btn-primary">Crear Voucher</a> -->
     </div>
 
 @endsection

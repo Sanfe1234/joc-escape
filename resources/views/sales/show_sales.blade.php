@@ -24,8 +24,8 @@
                 <tr>
                     <th scope="row">{{ $s->id }}</th>
                     <td>{{ $s->name }}</td>
-                    <td><a href="/sales/{{ $s->id }}/destroy" class="btn btn-primary">Eliminar</a></td>
-                    <td><a href="/sales/{{ $s->id }}/edit" class="btn btn-primary">Editar</a></td>
+                    <td><a href="/sales/{{ $s->id }}/destroy" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="/sales/{{ $s->id }}/edit" class="btn btn-warning">Editar</a></td>
                 </tr>
             @endforeach
             </tbody>

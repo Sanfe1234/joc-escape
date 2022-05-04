@@ -57,7 +57,7 @@ class JocController extends BaseController
         $img->save();
 
 
-        return redirect('/');
+        return redirect('/llista-jocs');
     }
 
     public function destroy($jocId)

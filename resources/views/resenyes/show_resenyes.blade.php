@@ -34,14 +34,14 @@ use App\Models\Experiencia;
                     <td>{{ $r->data_resenya }}</td>
                     <td>{{ $r->puntuacio }}</td>
                     <td>{{ $r->text }}</td>
-                    <td><a href="/resenyes/{{ $r->id }}/destroy" class="btn btn-primary">Eliminar</a></td>
-                    <td><a href="/resenyes/{{ $r->id }}/edit" class="btn btn-primary">Editar</a></td>
+                    <td><a href="/resenyes/{{ $r->id }}/destroy" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="/resenyes/{{ $r->id }}/edit" class="btn btn-warning">Editar</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
 
-        <a href="/new-resenya" class="btn btn-block btn-primary">Crear Voucher</a>
+        <!-- <a href="/new-resenya" class="btn btn-block btn-primary">Crear Voucher</a> -->
     </div>
 
 @endsection

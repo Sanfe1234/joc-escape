@@ -41,8 +41,9 @@ use App\Models\Sala;
             @endforeach
             </tbody>
         </table>
-
+        <!--
         <a href="/new-reserva" class="btn btn-block btn-primary">Crear Reserva</a>
+        -->
     </div>
 
 @endsection

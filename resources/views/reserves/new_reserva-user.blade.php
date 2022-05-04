@@ -26,6 +26,7 @@
         <form action="/save-reserva" method="POST">
             @csrf
             <input type="hidden" name="userId" id="userId" value="{{ Auth::id() }}">
+            <input type="hidden" name="jocId" id="jocId" value="{{ $joc->id }}">
             <input type="hidden" name="minPlayers" id="minPlayers" value="{{ $joc->min_players }}">
             <input type="hidden" name="maxPlayers" id="maxPlayers" value="{{ $joc->max_players }}">
             <div class="form-group">

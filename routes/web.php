@@ -116,6 +116,7 @@ Route::get('/reserva/{reservaId}/validar', [ReservaController::class, 'validar']
 
 Route::get('/reserves/{reservaId}/destroy', [ReservaController::class, 'destroy']);
 
+
 Route::post('/save-reserva', [ReservaController::class, 'save']);
 
 Route::post('/reserves/{reserva}/update-reserva', [ReservaController::Class, 'update']);
@@ -136,6 +137,8 @@ Route::get('/experiencies/{experienciaId}/destroy', [ExperienciaController::clas
 Route::post('/save-experiencia', [ExperienciaController::class, 'save']);
 
 Route::post('/experiencies/{experiencia}/update-experiencia', [ExperienciaController::Class, 'update']);
+
+Route::get('/experiencies/{experienciaId}/win', [ExperienciaController::class, 'win']);
 
 
 //---------------------------   RESENYA   ---------------------------\\

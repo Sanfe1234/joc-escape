@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Experiencia;
+use App\Models\User;
+use App\Models\Voucher;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use Symfony\Component\Console\Input\Input;
 
 class ExperienciaController extends BaseController
 {
@@ -22,6 +23,20 @@ class ExperienciaController extends BaseController
         } else {
             return redirect('/');
         }
+    }
+
+    public function win($experienciaId)
+    {
+        $e = Experiencia::find($experienciaId);
+        $e->winner = 1;
+        $e->save();
+
+        $v = new Voucher();
+        $v->id_user = User::find($e->id_reserva)->id;
+        $v->discount = 10;
+        $v->save();
+
+        return redirect('/llista-experiencies');
     }
 
     public function save()

@@ -28,14 +28,14 @@
                     <td>{{ $j->name }}</td>
                     <td>{{ $j->max_players }}</td>
                     <td>{{ $j->min_players }}</td>
-                    <td><a href="/jocs/{{ $j->id }}/delete" class="btn btn-primary">El·liminar</a></td>
-                    <td><a href="/jocs/{{ $j->id }}/edit" class="btn btn-primary">Editar</a></td>
+                    <td><a href="/jocs/{{ $j->id }}/delete" class="btn btn-danger">El·liminar</a></td>
+                    <td><a href="/jocs/{{ $j->id }}/edit" class="btn btn-warning">Editar</a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
 
-        <a href="/new-game" class="btn btn-block btn-primary">Crear Jocs</a>
+         <a href="/new-game" class="btn btn-block btn-primary">Crear Jocs</a>
     </div>
 
 @endsection

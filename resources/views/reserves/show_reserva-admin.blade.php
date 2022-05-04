@@ -13,17 +13,27 @@
 
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title text-center"></h5>
-                <p><b>Usuari:</b> {{ $buyer->name}}</p>
+                <p><b>Usuari:</b> {{ $client->name}}</p>
                 <p><b>Joc:</b> {{ $joc->name}}</p>
-                @if($buyer->company)
-                    <p><b>Empresa:</b> {{ $buyer->company }}</p>
+                @if($client->company)
+                    <p><b>Empresa:</b> {{ $client->company }}</p>
                 @endif
-                <p>Data de reserva: {{ $reserva->data_reserva }}</p>
+                <p><b>Data de reserva:</b> {{ $reserva->data_reserva }}</p>
                 @if($reserva->validat == 0)
-                    <p>Validat: NO <a href="/reserva/{{ $reserva->id }}/validar">Validar</a></p>
+                    <p><b>Validat:</b> NO <a href="/reserva/{{ $reserva->id }}/validar">Validar</a></p>
                 @else
-                    <p>Validat: SI</p>
+                    <p><b>Validat:</b> SI</p>
+                @endif
+                <br>
+
+                <h6 class="card-title">Participants</h6>
+                @if($participants)
+                    @foreach($participants as $p)
+                        - {{ $p->name }}
+                        <br>
+                    @endforeach
+                @else
+                    *No hi han participants*
                 @endif
             </div>
         </div>

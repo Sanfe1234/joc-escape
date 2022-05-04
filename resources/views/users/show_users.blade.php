@@ -32,8 +32,8 @@
                     <td>{{ $u->phone }}</td>
                     <td>{{ $u->country }}</td>
                     <td>{{ $u->company }}</td>
-                    <td><a href="/users/{{ $u->id }}/destroy" class="btn btn-primary">Eliminar</a></td>
-                    <td><a href="/users/{{ $u->id }}/edit" class="btn btn-primary">Editar</a></td>
+                    <td><a href="/users/{{ $u->id }}/destroy" class="btn btn-danger">Eliminar</a></td>
+                    <td><a href="/users/{{ $u->id }}/edit" class="btn btn-warning">Editar</a></td>
                 </tr>
             @endforeach
             </tbody>
