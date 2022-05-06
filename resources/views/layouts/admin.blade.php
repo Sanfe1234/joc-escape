@@ -8,8 +8,6 @@
 
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="public/css/main.css">
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>

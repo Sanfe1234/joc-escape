@@ -156,3 +156,7 @@ Route::get('/resenyes/{resenyaId}/destroy', [ResenyaController::class, 'destroy'
 Route::post('/save-resenya', [ResenyaController::class, 'save']);
 
 Route::post('/resenyes/{resenya}/update-resenya', [ResenyaController::Class, 'update']);
+
+//---------------------------   VUE   ---------------------------\\
+
+Route::get('user', 'VueController@getAllUsers');
