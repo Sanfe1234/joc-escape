@@ -28,14 +28,34 @@ class UserController extends BaseController
         }
     }
 
-    public function save()
+    public function goToNewUserAdmin()
+    {
+        if (session('admin')) {
+            return view('users.create_user-admin');
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function save(Request $request)
     {
         $req = request()->all();
         $user = new User();
+        $idRol = 1;
+
+        $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+            'dni' => 'required',
+            'mail' => 'required',
+            'phone' => 'required',
+        ]);
 
         //dd($req);
-
-        $user->id_rol = 1;
+        if (@isset($req['admin'])) {
+            $idRol = 2;
+        }
+        $user->id_rol = $idRol;
         $user->name = $req['name'];
         $user->password = bcrypt($req['password']);
         $user->dni = $req['dni'];

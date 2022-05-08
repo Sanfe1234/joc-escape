@@ -1,7 +1,7 @@
 /*----------------------
 Click Div
 ----------------------*/
-ClickDiv = {
+DebugMenu = {
     init: function () {
         $(".debug-menu").click(function () {
             $(".debug-menu").toggleClass("open");
@@ -11,7 +11,6 @@ ClickDiv = {
 
 
 $(function () {
-    ClickDiv.init();
-    // your code goes here
+    DebugMenu.init();
 
 });

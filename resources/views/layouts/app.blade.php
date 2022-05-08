@@ -47,8 +47,18 @@
                 <a href="/llista-sales" class="btn text-white my-2 my-sm-0">Sales</a>
             @endif
             @if(Auth::check())
-                <p class="bg-primary badge mt-3 mr-4 fs-2" style="font-size: 20px">Welcome: {{ Auth::user()->name }}</p>
-                <a href="/log-out" class="btn btn-outline-success my-2 my-sm-0">LogOut</a>
+                <div class="dropdown show mr-3">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/user/{{ Auth::id() }}/reserves">Reserves</a>
+                        <a class="dropdown-item" href="/user/{{ Auth::id() }}/vouchers">Vouchers</a>
+                        <a class="dropdown-item " href="/log-out" style="color: darkred">Tencar Sessió</a>
+                    </div>
+                </div>
             @else
                 <a href="/new-user" class="btn btn-outline-light mr-3 my-2 my-sm-0">Regstrar-se</a>
                 <a href="/login-page" class="btn btn-outline-success my-2 my-sm-0">Login</a>

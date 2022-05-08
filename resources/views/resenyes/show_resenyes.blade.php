@@ -8,11 +8,12 @@ use App\Models\Experiencia;
 
 ?>
 @section('title')
-    Llista Vouchers
+    Llista Resenyes
 @endsection
 
 @section('contingut')
     <div class="container">
+        <h2>Resenyes</h2>
         <table class="table">
             <thead>
             <tr>

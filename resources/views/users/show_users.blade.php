@@ -11,6 +11,7 @@
 
 @section('contingut')
     <div class="container">
+        <h2>Usuaris</h2>
         <table class="table">
             <thead>
             <tr>
@@ -39,7 +40,7 @@
             </tbody>
         </table>
 
-        <a href="/new-user" class="btn btn-block btn-primary">Crear Users</a>
+        <a href="/new-user-admin" class="btn btn-block btn-primary">Crear Users</a>
     </div>
 
 @endsection

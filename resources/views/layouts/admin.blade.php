@@ -46,7 +46,7 @@
                     id="menu">
                     <li class="nav-item">
                         <a href="/Gestor" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                            <span class="ms-1 d-none d-sm-inline">Inici</span>
                         </a>
                     </li>
                     <li>

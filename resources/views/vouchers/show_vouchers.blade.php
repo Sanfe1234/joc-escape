@@ -11,6 +11,7 @@ use App\Models\User;
 
 @section('contingut')
     <div class="container">
+        <h2>Vouchers</h2>
         <table class="table">
             <thead>
             <tr>

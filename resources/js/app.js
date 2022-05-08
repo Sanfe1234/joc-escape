@@ -13,13 +13,26 @@ window.Vue = require('vue').default;
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * Eg. ./components/HomeComponent.vue -> <example-component></example-component>
  */
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('home-games-component', require('./components/HomeComponent.vue').default);
+Vue.component('gestor-component', require('./components/GestorComponent.vue').default);
+Vue.component('single-joc-component', require('./components/singleJocComponent.vue').default);
+
+import {BootstrapVue, IconsPlugin} from 'bootstrap-vue'
+
+// Import Bootstrap and BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

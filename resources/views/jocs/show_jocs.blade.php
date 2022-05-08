@@ -11,11 +11,13 @@
 
 @section('contingut')
     <div class="container">
+        <h2>Jocs</h2>
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nom</th>
+                <th scope="col">Preu</th>
                 <th scope="col">Màxim de jugadors</th>
                 <th scope="col">Mínim de jugadors</th>
             </tr>
@@ -26,6 +28,7 @@
                 <tr>
                     <th scope="row">{{ $j->id }}</th>
                     <td>{{ $j->name }}</td>
+                    <td>{{ $j->price }}</td>
                     <td>{{ $j->max_players }}</td>
                     <td>{{ $j->min_players }}</td>
                     <td><a href="/jocs/{{ $j->id }}/delete" class="btn btn-danger">El·liminar</a></td>
@@ -35,7 +38,7 @@
             </tbody>
         </table>
 
-         <a href="/new-game" class="btn btn-block btn-primary">Crear Jocs</a>
+        <a href="/new-game" class="btn btn-block btn-primary">Crear Jocs</a>
     </div>
 
 @endsection

@@ -112,7 +112,7 @@ class InitController extends BaseController
         $empleat1->dni = '6246831g';
         $empleat1->mail = 'Hector@escapesmanolito.com';
         $empleat1->phone = '734931472';
-        $empleat1->country = 'EspaÑa';
+        $empleat1->country = 'EspaNYa';
         $empleat1->company = '';
         $empleat1->save();
 
@@ -123,7 +123,7 @@ class InitController extends BaseController
         $empleat2->dni = '7564323Fs';
         $empleat2->mail = 'Maribel@escapesmanolito.com';
         $empleat2->phone = '123456789';
-        $empleat2->country = 'Guatelama';
+        $empleat2->country = 'EspaÑa';
         $empleat2->company = '';
         $empleat2->save();
 
@@ -150,21 +150,110 @@ class InitController extends BaseController
         $client2->save();
     }
 
+    public function createImatge()
+    {
+        Imatge::query()->delete();
+
+        $img1 = new Imatge();
+        $img1->id_joc = 1;
+        $img1->url = "/img/SAW-Bathroom.jpg";
+        $img1->save();
+
+        $img2 = new Imatge();
+        $img2->id_joc = 2;
+        $img2->url = "/img/Catacumbas.jpg";
+        $img2->save();
+
+        $img3 = new Imatge();
+        $img3->id_joc = 3;
+        $img3->url = "/img/Crazy-train.jpg";
+        $img3->save();
+
+        $img4 = new Imatge();
+        $img4->id_joc = 4;
+        $img4->url = "/img/tumba-faraon.jpg";
+        $img4->save();
+
+        $img5 = new Imatge();
+        $img5->id_joc = 5;
+        $img5->url = "/img/suegros.jpg";
+        $img5->save();
+
+        $img6 = new Imatge();
+        $img6->id_joc = 6;
+        $img6->url = "/img/elivs.jpg";
+        $img6->save();
+
+        $img7 = new Imatge();
+        $img7->id_joc = 7;
+        $img7->url = "/img/laberinto.jpg";
+        $img7->save();
+
+        $img8 = new Imatge();
+        $img8->id_joc = 8;
+        $img8->url = "/img/manicura.jpg";
+        $img8->save();
+    }
+
     public function createJocs()
     {
         Joc::query()->delete();
 
         $joc1 = new joc;
-        $joc1->name = 'Escape from Tarkov';
-        $joc1->max_players = 4;
-        $joc1->min_players = 2;
+        $joc1->name = 'SAW games';
+        $joc1->price = '13.99';
+        $joc1->max_players = 5;
+        $joc1->min_players = 3;
         $joc1->save();
 
         $joc2 = new joc;
-        $joc2->name = "Mikey's fun house";
+        $joc2->name = "Catacumbas";
+        $joc2->price = '24.49';
         $joc2->max_players = 6;
         $joc2->min_players = 1;
         $joc2->save();
+
+        $joc3 = new joc;
+        $joc3->name = "Crazy Train";
+        $joc3->price = '16.36';
+        $joc3->max_players = 2;
+        $joc3->min_players = 2;
+        $joc3->save();
+
+        $joc4 = new joc;
+        $joc4->name = "La Tumba del Faraón";
+        $joc4->price = '13.64';
+        $joc4->max_players = 2;
+        $joc4->min_players = 2;
+        $joc4->save();
+
+        $joc5 = new joc;
+        $joc5->name = "Cena con suegros";
+        $joc5->price = '19.99';
+        $joc5->max_players = 1;
+        $joc5->min_players = 1;
+        $joc5->save();
+
+        $joc6 = new joc;
+        $joc6->name = "Escape from Elvis";
+        $joc6->price = '19.99';
+        $joc6->max_players = 2;
+        $joc6->min_players = 2;
+        $joc6->save();
+
+        $joc7 = new joc;
+        $joc7->name = "Laberinto tinto";
+        $joc7->price = '24.34';
+        $joc7->max_players = 3;
+        $joc7->min_players = 1;
+        $joc7->save();
+
+        $joc8 = new joc;
+        $joc8->name = "Sesión de manicura";
+        $joc8->price = '24.34';
+        $joc8->max_players = 5;
+        $joc8->min_players = 2;
+        $joc8->save();
     }
 
     public function createSala()
@@ -178,6 +267,26 @@ class InitController extends BaseController
         $sala2 = new sala;
         $sala2->name = 'Sala 2';
         $sala2->save();
+
+        $sala3 = new sala;
+        $sala3->name = 'Sala 3';
+        $sala3->save();
+
+        $sala4 = new sala;
+        $sala4->name = 'Sala 4';
+        $sala4->save();
+
+        $sala5 = new sala;
+        $sala5->name = 'Sala 5';
+        $sala5->save();
+
+        $sala6 = new sala;
+        $sala6->name = 'Sala 6';
+        $sala6->save();
+
+        $sala7 = new sala;
+        $sala7->name = 'Sala 7';
+        $sala7->save();
 
     }
 
@@ -261,8 +370,8 @@ class InitController extends BaseController
         $res1->id_experience = 1;
         $res1->id_user = 3;
         $res1->data_resenya = Carbon::now()->addDays(5)->addHours(3);
-        $res1->puntuacio = 8;
-        $res1->text = "Va ser molt divertit, vam poder veure com queien bombes i mataven a civils. Però em vaig embrutar el volso Giorgio&Buittoni de sang :(";
+        $res1->puntuacio = 10;
+        $res1->text = "Va ser molt divertit, al meu amic li va explotar el cap perquè no va desactivar l'aparell a temps. A mi em van amputar un braç i vaig estar 6 messos en coma. ";
         $res1->save();
 
         $res2 = new Resenya;
@@ -270,24 +379,10 @@ class InitController extends BaseController
         $res2->id_user = 4;
         $res2->data_resenya = Carbon::now()->addDays(5)->addHours(3);
         $res2->puntuacio = 1;
-        $res2->text = "Pensava k era una aventura divertida pels nens. Vaig sortir amb el cul tort. I fa dies k espero k surti el meu fill gran. No hi tornaré pas";
+        $res2->text = "Esta bé si t'agraden les pedres i calaveres, jo ho vaig trobar molt avorrit";
         $res2->save();
     }
 
-    public function createImatge()
-    {
-        Imatge::query()->delete();
-
-        $img1 = new Imatge();
-        $img1->id_joc = 1;
-        $img1->url = "/img/Escape-from-tarkov_1.jpg";
-        $img1->save();
-
-        $img2 = new Imatge();
-        $img2->id_joc = 2;
-        $img2->url = "/img/Mickey_1.jpg";
-        $img2->save();
-    }
 
     public function createVoucher()
     {

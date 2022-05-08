@@ -10,7 +10,7 @@
 @endsection
 
 @section('contingut')
-    <div class="container mt-5">
+    <div class="container my-5">
         <form action="/save-user" method="POST">
             @csrf
             <div class="form-group">
@@ -49,13 +49,9 @@
                        placeholder="Insereix la teva empresa">
             </div>
             @if(session('admin'))
-                <div class="form-check">
+                <div class="form-check mb-4">
                     <input type="checkbox" class="form-check-input" id="adminCheck" name="admin">
                     <label class="form-check-label" for="adminCheck">Admin?</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="WorkerCheck" name="worker">
-                    <label class="form-check-label" for="WorkerCheck">Empleat?</label>
                 </div>
             @endif
             <button type="submit" class="btn btn-primary">Submit</button>

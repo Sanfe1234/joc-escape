@@ -13,6 +13,7 @@ use App\Models\Sala;
 
 @section('contingut')
     <div class="container">
+        <h2>Reserves</h2>
         <table class="table">
             <thead>
             <tr>

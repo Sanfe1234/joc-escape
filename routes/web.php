@@ -10,6 +10,7 @@ use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\ResenyaController;
 use App\Http\Controllers\ExperienciaController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\VueController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,9 @@ Route::post('/jocs/{joc}/update-game', [JocController::Class, 'update']);
 Route::get('/new-user', function () {
     return view('users.create_user');
 });
+
+Route::get('/new-user-admin', [UserController::class, 'goToNewUserAdmin']);
+
 
 Route::get('/llista-users', [UserController::class, 'show']);
 
@@ -159,4 +163,8 @@ Route::post('/resenyes/{resenya}/update-resenya', [ResenyaController::Class, 'up
 
 //---------------------------   VUE   ---------------------------\\
 
-Route::get('user', 'VueController@getAllUsers');
+Route::get('/getUsers', [VueController::class, 'getAllUsers']);
+
+Route::get('/getAllJocs', [VueController::class, 'getAllJocs']);
+
+Route::get('/getJoc/{idJoc}', [VueController::class, 'getSingleJoc']);

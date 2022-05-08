@@ -16,6 +16,7 @@ class Joc extends Migration
         Schema::create('joc', function (Blueprint $table) {
             $table->id('id')->unique()->autoIncrement();
             $table->string("name");
+            $table->float("price");
             $table->integer("max_players");
             $table->integer("min_players");
         });

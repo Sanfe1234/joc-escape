@@ -26,21 +26,13 @@ class HomeController extends BaseController
     public function index()
     {
 
-        $users = User::all();
-        $jocs = Joc::all();
-        $imgs = Imatge::all();
-        //echo $imgs;
-
-        return view('home')->with('jocs', $jocs)->with('imgs', $imgs);
+        return view('home');
     }
 
     public function backoffice()
     {
-
-        $users = User::all();
         $jocs = Joc::all();
         $imgs = Imatge::all();
-        //echo $imgs;
 
         if (session('admin')) {
             return view('gestor')->with('jocs', $jocs)->with('imgs', $imgs);

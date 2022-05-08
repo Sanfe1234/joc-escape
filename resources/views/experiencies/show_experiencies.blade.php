@@ -13,6 +13,7 @@ use App\Models\Reserva;
 
 @section('contingut')
     <div class="container">
+        <h2>Experiències</h2>
         <table class="table">
             <thead>
             <tr>

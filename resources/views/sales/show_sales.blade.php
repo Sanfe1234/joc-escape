@@ -11,6 +11,7 @@
 
 @section('contingut')
     <div class="container">
+        <h2>Sales</h2>
         <table class="table">
             <thead>
             <tr>
