@@ -22,6 +22,8 @@ window.Vue = require('vue').default;
 Vue.component('home-games-component', require('./components/HomeComponent.vue').default);
 Vue.component('gestor-component', require('./components/GestorComponent.vue').default);
 Vue.component('single-joc-component', require('./components/singleJocComponent.vue').default);
+Vue.component('user-reserves-component', require('./components/userReservesComponent.vue').default);
+Vue.component('user-voucher-component', require('./components/userVoucherComponent.vue').default);
 
 import {BootstrapVue, IconsPlugin} from 'bootstrap-vue'
 

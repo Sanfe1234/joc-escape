@@ -75,8 +75,11 @@ class ReservaController extends BaseController
         } else {
             return redirect('/');
         }
+    }
 
-
+    public function showSingle()
+    {
+        return view('users.user-reserves')->with('user', Auth::user());
     }
 
     public function save(Request $request)

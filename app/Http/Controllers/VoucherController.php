@@ -8,6 +8,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 
 class VoucherController extends BaseController
@@ -22,6 +23,11 @@ class VoucherController extends BaseController
         } else {
             return redirect('/');
         }
+    }
+
+    public function showSingle()
+    {
+        return view('users.user-vouchers')->with('user', Auth::user());
     }
 
     public function save()

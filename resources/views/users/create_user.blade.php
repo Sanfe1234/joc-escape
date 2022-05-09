@@ -11,7 +11,7 @@
 
 @section('contingut')
     <div class="container my-5">
-        <form action="/save-user" method="POST">
+        <form action="/save-user" class="mb-5" method="POST" id="register-form">
             @csrf
             <div class="form-group">
                 <label for="name">Nom i Cognom</label>
@@ -54,8 +54,22 @@
                     <label class="form-check-label" for="adminCheck">Admin?</label>
                 </div>
             @endif
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="register-submit">Submit</button>
         </form>
+
+        @if(session('loginError'))
+            <div class="container mt-5">
+                <div class="alert alert-danger" role="alert">
+                    {{ Session::get('loginError') }}
+                </div>
+            </div>
+        @endif
+
+        {{ Session::put('loginError', false) }}
+
+        <div id="error-wrapper">
+
+        </div>
     </div>
 
 

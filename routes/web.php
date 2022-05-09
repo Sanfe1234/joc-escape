@@ -56,10 +56,11 @@ Route::get('/new-user', function () {
 
 Route::get('/new-user-admin', [UserController::class, 'goToNewUserAdmin']);
 
-
 Route::get('/llista-users', [UserController::class, 'show']);
 
 Route::get('/users/{user}/edit', [UserController::class, 'edit']);
+
+Route::get('/user/{user}/reserves', [UserController::class, 'edit']);
 
 Route::get('/users/{userId}/destroy', [UserController::class, 'destroy']);
 
@@ -101,12 +102,16 @@ Route::post('/save-voucher', [VoucherController::class, 'save']);
 
 Route::post('/vouchers/{voucher}/update-voucher', [VoucherController::Class, 'update']);
 
+Route::get('/user-vouchers', [VoucherController::class, 'showSingle']);
+
 
 //---------------------------   RESERVA   ---------------------------\\
 
 Route::get('/new-reserva', function () {
     return view('reserves.create_reserva');
 });
+
+Route::get('/user-reserves', [ReservaController::class, 'showSingle']);
 
 Route::get('/joc/{jocId}/reserva', [ReservaController::class, 'goToReserva']);
 
@@ -161,6 +166,7 @@ Route::post('/save-resenya', [ResenyaController::class, 'save']);
 
 Route::post('/resenyes/{resenya}/update-resenya', [ResenyaController::Class, 'update']);
 
+
 //---------------------------   VUE   ---------------------------\\
 
 Route::get('/getUsers', [VueController::class, 'getAllUsers']);
@@ -168,3 +174,7 @@ Route::get('/getUsers', [VueController::class, 'getAllUsers']);
 Route::get('/getAllJocs', [VueController::class, 'getAllJocs']);
 
 Route::get('/getJoc/{idJoc}', [VueController::class, 'getSingleJoc']);
+
+Route::get('/getReservesFromUser', [VueController::class, 'getReservesFromUser']);
+
+Route::get('/getVouchersFromUser', [VueController::class, 'getVouchersFromUser']);

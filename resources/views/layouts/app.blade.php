@@ -54,8 +54,8 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/user/{{ Auth::id() }}/reserves">Reserves</a>
-                        <a class="dropdown-item" href="/user/{{ Auth::id() }}/vouchers">Vouchers</a>
+                        <a class="dropdown-item" href="/user-reserves">Reserves</a>
+                        <a class="dropdown-item" href="/user-vouchers">Vouchers</a>
                         <a class="dropdown-item " href="/log-out" style="color: darkred">Tencar Sessió</a>
                     </div>
                 </div>

@@ -46,7 +46,8 @@ class UserController extends BaseController
         $request->validate([
             'name' => 'required',
             'password' => 'required',
-            'dni' => 'required',
+            'dni' => 'required|unique:user',
+            'email' => 'required|email|unique:users,email',
             'mail' => 'required',
             'phone' => 'required',
         ]);

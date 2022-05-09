@@ -6,6 +6,7 @@ use App\Models\Experiencia;
 use App\Models\Imatge;
 use App\Models\Joc;
 use App\Models\Reserva;
+use App\Models\Sala;
 use App\Models\User;
 use App\Models\Voucher;
 use http\Env\Response;
@@ -74,5 +75,53 @@ class VueController extends BaseController
         array_push($res, $auth);
 
         return $res;
+    }
+
+    public function getReservesFromUser()
+    {
+        $reserves = Reserva::all();
+        $sales = Sala::all();
+        $jocs = Joc::all();
+        $res = array();
+
+        foreach ($reserves as $r) {
+            $res_reserva = array();
+            if ($r->id_user == Auth::id()) {
+                array_push($res_reserva, $r);
+
+                foreach ($jocs as $j) {
+                    if ($j->id == $r->id_joc) {
+                        array_push($res_reserva, $j->name);
+                    }
+                }
+
+                foreach ($sales as $s) {
+                    if ($s->id == $r->id_sala) {
+                        array_push($res_reserva, $s->name);
+                    }
+                }
+
+                array_push($res, $res_reserva);
+            }
+        }
+
+        //dd($res);
+
+        return $res;
+    }
+
+    public function getVouchersFromUser()
+    {
+        $vouchers = Voucher::all();
+        $res = array();
+
+        foreach ($vouchers as $v) {
+            if (Auth::id() == $v->id_user) {
+                array_push($res, $v);
+            }
+        }
+
+        return $res;
+
     }
 }
